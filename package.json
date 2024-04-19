@@ -1,0 +1,19 @@
+{
+  "name": "stores",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "deno run --unstable --allow-read --allow-write --allow-net --allow-env --allow-run mod.ts build --serve --watch"
+  },
+  "keywords": [],
+  "author": "heoang",
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5"
+  }
+}
