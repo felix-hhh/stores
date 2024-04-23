@@ -1,9 +1,24 @@
-import express,{Application} from "express";
+import express, { Application } from "express"
 
-const app:Application = express();
+const initServer = async () => {
 
-app.use('/', ()=>{});
+  const app: Application = express();
+  const port: number = 3000;
 
-app.listen(3000, () => {
-    console.log('端口启动成功');
-});
+  //use
+  app.use(express.static(__dirname + "/public"));
+
+  //set
+  app.set("view engine", "pug");
+  app.set("views", __dirname + "/views");
+
+  app.get("/", (req, res) => {
+    res.render("index", { foo: "FOO" });
+  });
+
+  app.listen(port, () => {
+    console.log(`😎 Server is running on http://localhost:${port}`);
+  });
+};
+
+initServer();

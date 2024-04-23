@@ -1,6 +1,10 @@
-h1, h2, h3, h4, h5, ul, li {
+@import "variables.css";
+h1, h2, h3, h4, h5, ul, li, a {
   padding: 0;
   margin: 0;
+  color: var(--color-text);
+  text-decoration: none;
+  list-style: none;
 }
 
 body {
@@ -9,33 +13,84 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   background-color: var(--color-background);
-  text-size-adjust: 100%;
   font-size: var(--font-size);
   line-height: var(--line-height);
   color: var(--color-text);
   flex-direction: column;
   display: flex;
+  height: 100vh;
 }
-body header {
-  background-color: var(--color-background);
+
+header {
+  background-color: var(--color-header);
+  border-bottom: 1px solid var(--color-border);
+}
+header nav {
   height: var(--height-header);
   display: flex;
+  align-items: center;
 }
-body header h1 {
+header nav .title {
   width: var(--width-sidebar);
+  color: var(--color-text-header);
+  text-align: center;
+  font-size: 1rem;
 }
-body header nav {
+header nav .flex-grow {
   flex-grow: 1;
-  display: flex;
 }
-body header nav .flex-grow {
-  flex-grow: 1;
+header nav .github-logo {
+  filter: brightness(100);
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 10px;
 }
-body main {
+
+main {
   flex: 1;
+  height: 0;
+  flex-shrink: 0;
 }
-body main aside {
+main aside {
+  width: var(--width-sidebar);
+  background-color: var(--color-background-aside);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
   height: 100%;
+  border-right: 1px solid var(--color-border);
+  overflow-y: auto;
+}
+main aside ul li {
+  font-weight: bold;
+}
+main aside ul li a {
+  display: block;
+  position: relative;
+  line-height: 2rem;
+  height: 2rem;
+  padding: 0 2rem;
+}
+main aside ul li a:hover {
+  background-color: #eee;
+}
+main aside ul li.active a {
+  color: var(--color-menu-active);
+  background-color: #eee;
+}
+main aside ul li.active a:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 1rem;
+  width: 4px;
+  background-color: var(--color-menu-active);
+}
+main aside ul li.header {
+  font-size: 10px;
+  text-transform: uppercase;
+  padding: 3px 15px;
+  margin-top: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

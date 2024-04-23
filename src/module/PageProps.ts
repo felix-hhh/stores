@@ -1,3 +1,3 @@
-interface PageProps{
-    
+interface PageProps {
+    title:string;
 }
