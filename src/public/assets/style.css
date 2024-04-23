@@ -1,0 +1,41 @@
+h1, h2, h3, h4, h5, ul, li {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  background-color: var(--color-background);
+  text-size-adjust: 100%;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  color: var(--color-text);
+  flex-direction: column;
+  display: flex;
+}
+body header {
+  background-color: var(--color-background);
+  height: var(--height-header);
+  display: flex;
+}
+body header h1 {
+  width: var(--width-sidebar);
+}
+body header nav {
+  flex-grow: 1;
+  display: flex;
+}
+body header nav .flex-grow {
+  flex-grow: 1;
+}
+body main {
+  flex: 1;
+}
+body main aside {
+  height: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */
