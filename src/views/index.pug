@@ -1,9 +1,11 @@
 html
     head
-        title STORES
+        title #{title}
         link(rel="stylesheet" href="assets/style.css")
     body
-        include components/header
+        include components/Header
         main
-            include components/aside
-            section(class="main-section")
+            include components/Aside
+            main
+                section.main-article
+                    article !{content}

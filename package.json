@@ -9,6 +9,7 @@
     "dev": "node-dev src/App.ts",
     "run": "nodemon . & npm run scss:build",
     "build": "vite build",
+    "prettirer": "npx prettier -w src",
     "lint": "eslint . --ext .ts"
   },
   "keywords": [],
@@ -26,17 +27,19 @@
     "@types/ejs": "^3.1.5",
     "@types/eslint": "^8.56.10",
     "@types/express": "^4.17.21",
+    "@types/markdown-it": "^14.0.1",
     "@types/mysql": "^2.15.26",
     "@typescript-eslint/eslint-plugin": "^7.7.0",
     "@typescript-eslint/parser": "^7.7.0",
     "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
     "globals": "^15.0.0",
     "node-dev": "^8.0.0",
     "prettier": "^3.2.5",
     "sass": "^1.75.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
-    "typescript-eslint": "^7.7.0",
+    "typescript-eslint": "^7.7.1",
     "vite": "^5.2.10"
   }
 }

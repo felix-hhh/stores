@@ -1,3 +1,4 @@
-interface PageProps {
-    title:string;
+export interface PageProps {
+    title: string;
+    content: string;
 }
