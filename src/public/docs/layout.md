@@ -6,6 +6,11 @@
 
 ## What is `_layout.tsx`
 
+### h3
+#### h4
+##### h5
+###### h6
+
 `_layout.tsx` can be understood as Pagic's template file when rendering the page. All page files (`md/tsx`) will use `_layout.tsx` as the template when rendering.
 
 We might as well create a `_layout.tsx` in the previous `site` project:

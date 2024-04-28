@@ -4,6 +4,7 @@ import {PageProps} from "./module/PageProps";
 import Prism from "prismjs";
 import loadLanguages from "prismjs/components/";
 import {htmlToText} from "html-to-text";
+import {MenuItem} from "./module/MenuItem";
 
 
 export interface StoresConfig {
@@ -20,6 +21,7 @@ export default class Stores {
      * 页面路径
      */
     public pagePaths: string[] = [];
+    public menuMap: MenuItem[] = [];
 
     public pagePropsMap: Map<String, PageProps> = new Map<String, PageProps>();
     /**
@@ -90,7 +92,7 @@ export default class Stores {
             };
 
             this.pagePropsMap.set(filename, pageProps);
-
+            this.menuMap.push({label: title, url: filename})
         });
     }
 }

@@ -1,38 +1,37 @@
 @import "type.css";
 
-.main-article {
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    margin-top: 2rem;
-  }
-
-  h5 {
-    margin-top: 1.5rem;
-  }
-
-  h6 {
-    margin-top: 1rem;
-  }
+article {
+  font-size: var(--font-size);
+  line-height: var(--font-line-height);
 
   h1 {
-    font-size: 32px;
+    font-size: var(--font-size-h1);
+    margin-top: var(--margin-h1);
   }
 
   h2 {
-    font-size: 24px;
+    font-size: var(--font-size-h2);
+    margin-top: var(--margin-h2);
   }
 
   h3 {
-    font-size: 18px;
+    font-size: var(--font-size-h3);
+    margin-top: var(--margin-h3);
   }
 
-  h4,
-  h5,
+  h4 {
+    font-size: var(--font-size-h4);
+    margin-top: var(--margin-h4);
+  }
+
+  h5 {
+    font-size: var(--font-size-h5);
+    margin-top: var(--margin-h5);
+  }
+
   h6 {
-    font-size: var(--font-size);
+    font-size: var(--font-size-h6);
+    margin-top: var(--margin-h6);
   }
 
   h1,
@@ -48,30 +47,46 @@
 
   a {
     color: var(--color-primary);
-    text-decoration: none;
+    text-decoration: underline;
   }
 
   blockquote {
     border-left: 5px solid var(--color-border);
-    color: var(--color-text-muted);
+    color: var(--color-font-blockquote);
     padding-left: 1rem;
     margin: 0.5rem;
   }
 
   code {
     background-color: var(--color-background-code);
+    border: 1px solid var(--color-border);
     font-size: var(--font-size-small);
     padding: 0.2em 0.2em;
+    border-radius: 3px;
   }
 
+  pre {
+    background-color: var(--color-background-pre) !important;
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
+
+    code[class*='language-'] {
+      font-size: var(--font-size-small);
+      border: none;
+      padding: 0;
+      background-color: var(--color-background-pre);
+      line-height: var(--font-line-height);
+    }
+  }
+
+
   table {
-    display: table;
-    font-size: 14px;
     line-height: var(--line-height-small);
 
     th {
       background-color: var(--color-background-faded);
       font-weight: var(--font-weight-bold);
+
     }
 
     th, td {
@@ -83,9 +98,6 @@
 
   }
 
-  code[class*='language-'] {
-    font-size: 12px !important;
-  }
 
   ul, ol, dd {
     padding-left: 1.5rem;

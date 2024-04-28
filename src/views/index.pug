@@ -1,6 +1,7 @@
+doctype html
 html
     head
-        title #{title}
+        title #{title} · #{serverName}
         link(rel="stylesheet" href="assets/style.css")
         link(rel="stylesheet" href="assets/prism.css")
         script(src="assets/prism.js")
@@ -10,7 +11,7 @@ html
             include components/Aside
             main
                 section.main-article
-                    article !{content}
+                    article.github !{content}
                     div.prev_next
                         a(class="prev button" href="#{prevUrl}") «&nbsp;&nbsp;!{prevTitle}
                         a(class="next button" href="#{nextUrl}") !{nextTitle}&nbsp;&nbsp;»

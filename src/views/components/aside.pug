@@ -1,10 +1,10 @@
 aside
     ul
-        li(class="header") 我的
-        li(class="active")
-            a(href="") 简介
-        li
-            a(href="") aa
-        each val, index in {listData}
-            li
-                a(href="")= val
+        li.header 我的
+        each item in listData
+            if title == item.label
+                li.active
+                    a(href=item.url+".html")= item.label
+            else
+                li
+                    a(href=item.url+".html")= item.label

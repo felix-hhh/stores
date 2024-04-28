@@ -1,3 +1,27 @@
+:root {
+    --font-size: 16px;
+    --font-size-h1: 32px;
+}
+
 article.github {
---text-color:
+    --font-line-height: 2;
+    --font-size: 16px;
+    --font-size-small: 85%;
+    --font-size-h1: 2.25em;
+    --font-size-h2: 1.75em;
+    --font-size-h3: 1.5em;
+    --font-size-h4: 1.25em;
+    --font-size-h5: 1em;
+    --font-size-h6: 1em;
+    --margin-h1: 1em;
+    --margin-h2: 1em;
+    --margin-h3: 1em;
+    --margin-h4: 1em;
+    --margin-h5: 1em;
+    --margin-h6: 1em;
+    --line-height-title:1.2;
+    --color-font-blockquote: #777777;
+    --color-background-code: #f3f3f3;
+    --color-border: #e7eaed;
+    --color-background-pre: #f8f8f8;
 }
