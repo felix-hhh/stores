@@ -1,7 +1,10 @@
 import fs from "fs";
 import MarkdownIt from "markdown-it";
-import {defineConfig} from "vite";
 import {PageProps} from "./module/PageProps";
+import Prism from "prismjs";
+import loadLanguages from "prismjs/components/";
+import {htmlToText} from "html-to-text";
+
 
 export interface StoresConfig {
     srcDir: string;
@@ -28,7 +31,7 @@ export default class Stores {
         srcDir: "src/public/docs",
         outDir: "",
         port: 3000,
-        title: "STORES1",
+        title: "Stores",
     };
 
     public init() {
@@ -53,21 +56,41 @@ export default class Stores {
     }
 
     public rendFiles() {
-        console.log(this.pagePaths.length);
         this.pagePaths.forEach((filename) => {
-            console.log("filename:" + filename);
             const content: string = fs.readFileSync(Stores.defaultConfig.srcDir + "/" + filename).toString();
 
-            const markdownIt: MarkdownIt = new MarkdownIt();
+            const markdownIt: MarkdownIt = new MarkdownIt({
+                highlight: (str: string, lang: string = "autoit") => {
+                    if (lang.length == 0) {
+                        lang = "autoit";
+                    }
+                    loadLanguages([lang]);
+                    let grammar = Prism.languages[lang];
+                    Prism.hooks.run("before-highlight", {grammar: grammar});
+                    return `<pre><code class="language-${lang}">${Prism.highlight(
+                        str,
+                        grammar,
+                        lang,
+                    )}</code></pre>`;
+                }
+            });
             const mdStr: string = markdownIt.render(content);
 
             filename = filename.replace(".md", "");
+            const contentTitleHTML: string = mdStr.match(/^<h1[ >](.*?)<\/h1>/)?.[0] || "";
+            const title = htmlToText(contentTitleHTML, {
+                    tags: {
+                        h1: {options: {uppercase: false}}
+                    }
+                }
+            );
             const pageProps: PageProps = {
-                title: filename,
+                title: title,
                 content: mdStr,
             };
 
             this.pagePropsMap.set(filename, pageProps);
+
         });
     }
 }

@@ -5,4 +5,6 @@ aside
             a(href="") 简介
         li
             a(href="") aa
-        li(class="header") 我的
+        each val, index in {listData}
+            li
+                a(href="")= val

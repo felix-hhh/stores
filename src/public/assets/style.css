@@ -1,17 +1,15 @@
 @import "variables.css";
+@import "article/article.css";
 h1,
 h2,
 h3,
 h4,
 h5,
-ul,
-li,
 a {
   padding: 0;
   margin: 0;
   color: var(--color-text);
   text-decoration: none;
-  list-style: none;
 }
 
 body {
@@ -68,6 +66,12 @@ main aside {
   height: 100%;
   border-right: 1px solid var(--color-border);
   overflow-y: auto;
+  font-size: 14px;
+}
+main aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 main aside ul li {
   font-weight: bold;
@@ -107,49 +111,28 @@ main main {
   height: 100%;
   display: flex;
   justify-content: center;
+  overflow-y: auto;
 }
 main main section.main-article {
   padding: 0 1rem;
   width: 45rem;
+  word-wrap: break-word;
 }
-main main section.main-article article h1,
-main main section.main-article article h2,
-main main section.main-article article h3,
-main main section.main-article article h4 {
-  margin-top: 2rem;
+main main section.main-article .prev_next {
+  display: flex;
+  align-items: stretch;
+  margin-top: 3rem;
+  justify-content: space-between;
 }
-main main section.main-article article h5 {
-  margin-top: 1.5rem;
+main main section.main-article .prev_next a {
+  width: 40%;
+  display: inline-block;
+  padding: 1rem;
+  background-color: var(--color-background-aside);
+  line-height: var(--line-height-small);
 }
-main main section.main-article article h6 {
-  margin-top: 1rem;
-}
-main main section.main-article article h1 {
-  font-size: 32px;
-}
-main main section.main-article article h2 {
-  font-size: 24px;
-}
-main main section.main-article article h3 {
-  font-size: 18px;
-}
-main main section.main-article article h4,
-main main section.main-article article h5,
-main main section.main-article article h6 {
-  font-size: var(--font-size);
-}
-main main section.main-article article h1,
-main main section.main-article article h2,
-main main section.main-article article h3,
-main main section.main-article article h4,
-main main section.main-article article h5,
-main main section.main-article article h6 {
-  margin-bottom: 0.5rem;
-}
-main main section.main-article article blockquote {
-  border-left: 5px solid var(--color-border);
-  color: var(--color-text-muted);
-  padding: 0.5rem 0 0.5rem 1rem;
+main main section.main-article .prev_next a.next {
+  text-align: right;
 }
 
 /*# sourceMappingURL=style.css.map */

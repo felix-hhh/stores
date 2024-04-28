@@ -1,0 +1,98 @@
+@import "type.css";
+
+.main-article {
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: 2rem;
+  }
+
+  h5 {
+    margin-top: 1.5rem;
+  }
+
+  h6 {
+    margin-top: 1rem;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-size: var(--font-size);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  blockquote {
+    border-left: 5px solid var(--color-border);
+    color: var(--color-text-muted);
+    padding-left: 1rem;
+    margin: 0.5rem;
+  }
+
+  code {
+    background-color: var(--color-background-code);
+    font-size: var(--font-size-small);
+    padding: 0.2em 0.2em;
+  }
+
+  table {
+    display: table;
+    font-size: 14px;
+    line-height: var(--line-height-small);
+
+    th {
+      background-color: var(--color-background-faded);
+      font-weight: var(--font-weight-bold);
+    }
+
+    th, td {
+      border: 0;
+      border-bottom: 1px solid var(--color-border);
+      padding: 10px 0.5rem;
+      text-align: left;
+    }
+
+  }
+
+  code[class*='language-'] {
+    font-size: 12px !important;
+  }
+
+  ul, ol, dd {
+    padding-left: 1.5rem;
+  }
+
+  p, blockquote, table, dl, ul, ol, address, figure {
+    margin-top: 1rem;
+  }
+
+}

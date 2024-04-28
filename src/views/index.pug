@@ -2,6 +2,8 @@ html
     head
         title #{title}
         link(rel="stylesheet" href="assets/style.css")
+        link(rel="stylesheet" href="assets/prism.css")
+        script(src="assets/prism.js")
     body
         include components/Header
         main
@@ -9,3 +11,6 @@ html
             main
                 section.main-article
                     article !{content}
+                    div.prev_next
+                        a(class="prev button" href="#{prevUrl}") «&nbsp;&nbsp;!{prevTitle}
+                        a(class="next button" href="#{nextUrl}") !{nextTitle}&nbsp;&nbsp;»

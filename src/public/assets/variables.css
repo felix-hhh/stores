@@ -1,10 +1,10 @@
 :root {
   /* Colors */
-  --color-background: #f4f6f9;
+  --color-background: white;
   --color-header: #6777ef;
   --color-menu-active: #6777ef;
   --color-text-header: white;
-  --color-text: #78828a;
+  --color-text: #333;
   --color-text-muted: #777;
   --color-border: #eee;
 
@@ -24,7 +24,7 @@
   --z-index-header: 200;
 
   /* Typography */
-  --font-size: 14px;
+  --font-size: 16px;
   --font-size-small: 85%;
 
   --line-height: 1.5;

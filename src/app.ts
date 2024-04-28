@@ -15,13 +15,13 @@ const initServer = async () => {
     //set
     app.set("view engine", "pug");
     app.set("views", __dirname + "/views");
-    app.get("/:filename", (req, res) => {
+    app.get("/:filename.html", (req, res) => {
         const filename = req.params["filename"];
-        console.log(stores.pagePropsMap);
-        console.log(stores.pagePropsMap.get(filename)?.title);
+        const pageProps = stores.pagePropsMap.get(filename);
         res.render("index", {
-            title: Stores.defaultConfig.title,
-            content: stores.pagePropsMap.get(filename)?.content,
+            title: pageProps?.title + " · " + Stores.defaultConfig.title,
+            content: pageProps?.content,
+            listData: stores.pagePropsMap
         });
     });
 
