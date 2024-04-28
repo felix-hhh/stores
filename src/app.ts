@@ -19,9 +19,10 @@ const initServer = async () => {
         const filename = req.params["filename"];
         const pageProps = stores.pagePropsMap.get(filename);
         res.render("index", {
-            title: pageProps?.title + " · " + Stores.defaultConfig.title,
+            title: pageProps?.title,
+            serverName: Stores.defaultConfig.title,
             content: pageProps?.content,
-            listData: stores.pagePropsMap
+            listData: stores.menuMap
         });
     });
 
