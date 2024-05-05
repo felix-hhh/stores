@@ -1,0 +1,106 @@
+@import "variables.css";
+@import "article/article.css";
+
+body {
+  min-width: 100%;
+  background-color: #fdfdfd;
+  font-size: 16px;
+  font-family: var(--font-family);
+  color: #333;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+article, aside, blockquote, body, button, code, dd, details, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover{
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  background-color: #2a2935;
+  //border: 1px solid #1b1b22;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-align: right;
+
+  &-header {
+    color: #ffc402;
+    padding: 15px 10px;
+  }
+
+  &-collapse {
+    flex: 1;
+
+    .menu-item {
+      font-size: 14px;
+      line-height: 1;
+      list-style: none;
+
+      a {
+        padding: 18px 15px;
+        display: block;
+        color: white;
+
+        &.active {
+          color: #ffc402;
+          background-color: #26252f;
+          position: relative;
+
+          &:before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background-color: #ffc402;
+          }
+        }
+
+        &:hover:not(.active) {
+          color: #555;
+          background-color: #e7e7e7
+        }
+      }
+    }
+  }
+
+  &-bottom {
+    padding: 10px 0;
+    text-align: center;
+    font-size: 10px;
+
+    .copyright {
+      color: #666;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    position: fixed;
+    width: 180px;
+    height: 100%;
+    z-index: 100;
+    left: 0;
+    top: 0;
+  }
+}
+
+main {
+  padding: 0 45px 0 15px;
+  margin-left: 200px;
+}

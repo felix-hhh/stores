@@ -6,12 +6,17 @@ html
         link(rel="stylesheet" href="assets/prism.css")
         script(src="assets/prism.js")
     body
-        include components/Header
+        include components/header
+        include components/nav
         main
-            include components/Aside
-            main
-                section.main-article
-                    article.github !{content}
-                    div.prev_next
-                        a(class="prev button" href="#{prevUrl}") «&nbsp;&nbsp;!{prevTitle}
-                        a(class="next button" href="#{nextUrl}") !{nextTitle}&nbsp;&nbsp;»
+            section.article-list
+                each item in blogData
+                    article
+                        .post-header
+                            a(href="")
+                                h2=item.title
+                        .post-body=item.intro
+                        .post-button
+                            a(href="") 阅读全文 »
+                        .post-footer
+                            .post-eof

@@ -1,0 +1,13 @@
+nav.navbar
+    .navbar-header= serverName
+    .navbar-collapse
+        ul
+            each item in listData
+                li.menu-item
+                    if title == item.label
+                        a.active(href=item.url + ".html")= item.label
+                    else
+                        a(href=item.url + ".html")= item.label
+    .navbar-bottom
+        .copyright © 2023 美团技术团队
+        .copyright All rights reserved.

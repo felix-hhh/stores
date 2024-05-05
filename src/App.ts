@@ -1,6 +1,6 @@
 import express, {Application} from "express";
-import MarkdownIt from "markdown-it";
 import Stores from "./Stores";
+import {ContentItem} from "./module/ContentItem";
 
 const initServer = async () => {
     const app: Application = express();
@@ -15,7 +15,54 @@ const initServer = async () => {
     //set
     app.set("view engine", "pug");
     app.set("views", __dirname + "/views");
-    app.get("/:filename.html", (req, res) => {
+
+    /**
+     * 首页
+     */
+    app.get("/", (req, res) => {
+        const pageProps = stores.pagePropsMap;
+        const currentPageData: ContentItem[] = [];
+        pageProps.forEach((value, key) => {
+            currentPageData.push({
+                title: value.title,
+                intro: value.intro,
+                key: key
+            });
+        });
+
+        res.render("index", {
+            siteTitle: Stores.defaultConfig.title,
+            siteSubtitle: Stores.defaultConfig.subtitle,
+            asideMenu: stores.asideMenu,
+            blogData: currentPageData,
+            pageKey: "index"
+        });
+    });
+
+    /**
+     * 文章列表
+     */
+    app.get("/blog/:page", (req, res) => {
+        const page = req.params["page"];
+        res.render("blog", {
+            serverName: Stores.defaultConfig.title,
+            asideMenu: stores.asideMenu,
+            pageKey: "blog"
+        });
+    });
+
+    /**
+     * 关于
+     */
+    app.get("/about", (req, res) => {
+        res.render("about", {
+            serverName: Stores.defaultConfig.title,
+            asideMenu: stores.asideMenu,
+            pageKey: "about"
+        });
+    });
+
+    app.get("/article/:filename.html", (req, res) => {
         const filename = req.params["filename"];
         const pageProps = stores.pagePropsMap.get(filename);
         res.render("index", {

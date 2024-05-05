@@ -5,12 +5,14 @@ import Prism from "prismjs";
 import loadLanguages from "prismjs/components/";
 import {htmlToText} from "html-to-text";
 import {MenuItem} from "./module/MenuItem";
+import {substring} from "./utils/substring";
 
 
 export interface StoresConfig {
     srcDir: string;
     outDir: string;
     title?: string;
+    subtitle?: string;
     description?: string;
     port: number;
     githubUrl?: string;
@@ -23,7 +25,8 @@ export default class Stores {
     public pagePaths: string[] = [];
     public menuMap: MenuItem[] = [];
 
-    public pagePropsMap: Map<String, PageProps> = new Map<String, PageProps>();
+
+    public pagePropsMap: Map<string, PageProps> = new Map<string, PageProps>();
     /**
      * 模版文件名检测
      */
@@ -34,7 +37,13 @@ export default class Stores {
         outDir: "",
         port: 3000,
         title: "Stores",
+        subtitle: "收集一切的美好"
     };
+
+    public asideMenu: MenuItem[] = [
+        {label: "首页", url: "/", key: "index"},
+        {label: "关于", url: "/about", key: "about"}
+    ];
 
     public init() {
         this.initConfig();
@@ -80,19 +89,37 @@ export default class Stores {
 
             filename = filename.replace(".md", "");
             const contentTitleHTML: string = mdStr.match(/^<h1[ >](.*?)<\/h1>/)?.[0] || "";
+            const contentBodyHTML:string = mdStr.replace(/^<h1[ >].*?<\/h1>/,"")
             const title = htmlToText(contentTitleHTML, {
                     tags: {
                         h1: {options: {uppercase: false}}
                     }
                 }
             );
+            const intro: string = substring(
+                htmlToText(contentBodyHTML,{
+                    tags: {
+                        a: { options: { ignoreHref: true } },
+                        img: { format: 'skip' },
+                        blockquote: { format: 'skip' },
+                        ul: { options: { itemPrefix: ' - ' } },
+                        h1: { options: { uppercase: false } },
+                        h2: { options: { uppercase: false } },
+                        h3: { options: { uppercase: false } },
+                        h4: { options: { uppercase: false } },
+                        h5: { options: { uppercase: false } },
+                        h6: { options: { uppercase: false } },
+                        table: { options: { uppercaseHeaderCells: false } },
+                    }
+            }), 200, "...");
             const pageProps: PageProps = {
                 title: title,
                 content: mdStr,
+                intro: intro
             };
 
             this.pagePropsMap.set(filename, pageProps);
-            this.menuMap.push({label: title, url: filename})
+            this.menuMap.push({label: title, url: filename});
         });
     }
 }

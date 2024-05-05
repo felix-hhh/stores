@@ -1,0 +1,8 @@
+nav
+    ul
+        each item in asideMenu
+            li.menu-item
+                if pageKey === item.key
+                    a.active(href=item.url)= item.label
+                else
+                    a(href=item.url)= item.label
