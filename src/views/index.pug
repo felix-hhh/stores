@@ -1,22 +1,21 @@
 doctype html
 html
     head
-        title #{title} · #{serverName}
+        title 最新文章 · #{siteTitle}
         link(rel="stylesheet" href="assets/style.css")
-        link(rel="stylesheet" href="assets/prism.css")
-        script(src="assets/prism.js")
     body
         include components/header
         include components/nav
         main
             section.article-list
-                each item in blogData
-                    article
+                each item,index in blogData
+                    article.col-md-6
                         .post-header
-                            a(href="")
-                                h2=item.title
+                            a(href="")=item.title
                         .post-body=item.intro
-                        .post-button
-                            a(href="") 阅读全文 »
+                            .post-button
+                                a(href="") 阅读全文 »
                         .post-footer
                             .post-eof
+                    if index % 2 !== 0
+                        .block

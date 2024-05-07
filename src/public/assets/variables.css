@@ -5,17 +5,18 @@
     --color-menu-active: #6777ef;
     --color-text-header: white;
     --color-text: #333;
+    --color-text-nav-bottom: #666;
     --color-text-muted: #999;
     --color-border: #eee;
     --color-text-btn: white;
-    --color-link:#555;
-    --color-link-hover:#222;
+    --color-text-nav-link: #fff;
+    --color-nav-link-hover: #222;
+    --color-nav-link-hover-background: #fff;
 
 
-    --color-primary: hsl(210, 70%, 50%);
-
+    --color-primary: #ffc402;
     --color-background-faded: #f2f2f2;
-    --color-background-aside: #fafafa;
+    --color-background-aside: #2a2935;
     --color-background-code: #f2f2f2;
     --color-background-btn: #222;
 
@@ -30,7 +31,7 @@
     --container-width: 900px;
 
     /* Typography */
-    --font-size: 18px;
+    --font-size: 14px;
     --font-size-small: 85%;
 
     --line-height: 1.5;

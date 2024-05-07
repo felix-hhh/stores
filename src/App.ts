@@ -33,6 +33,7 @@ const initServer = async () => {
         res.render("index", {
             siteTitle: Stores.defaultConfig.title,
             siteSubtitle: Stores.defaultConfig.subtitle,
+            pageTitle: "最新文章",
             asideMenu: stores.asideMenu,
             blogData: currentPageData,
             pageKey: "index"

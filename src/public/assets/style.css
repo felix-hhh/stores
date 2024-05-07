@@ -1,4 +1,8 @@
 @import "variables.css";
+* {
+  box-sizing: border-box;
+}
+
 article, aside, blockquote, body, button, code, dd, details, dl, dt, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, input, legend, li, menu, nav, ol, p, pre, section, td, textarea, th, ul {
   margin: 0;
   padding: 0;
@@ -13,8 +17,8 @@ h2 {
 }
 
 ::selection {
-  background: #262a30;
-  color: #eee;
+  background: var(--color-primary);
+  color: white;
 }
 
 body {
@@ -26,43 +30,14 @@ body {
   font-weight: 400;
 }
 
-header {
-  padding-top: 100px;
-  text-align: center;
-}
-header .site-title a h1 {
-  display: inline-block;
-  background-color: #222;
-  color: white;
-  padding: 0 40px;
-}
-header .site-subtitle {
-  color: var(--color-text-muted);
-  margin: 10px 0;
-  font-size: 0.8125em;
-}
-
-nav {
-  font-size: 0.8125em;
-  padding: 20px 0;
-}
-nav ul {
-  display: flex;
-  justify-content: center;
-}
-nav ul li {
-  padding: 0 10px;
-  list-style: none;
-}
-nav ul li a {
-  display: block;
-  border-bottom: 1px solid transparent;
-}
-nav ul li a:hover {
-  border-bottom: 1px solid var(--color-link-hover);
-}
-nav ul li a.active {
-  color: var(--color-link-hover);
+header .page-title {
+  color: #999;
+  font-size: 1.4em;
+  line-height: 1.4;
+  border-bottom: 1px solid #eee;
+  margin: 20px 0 10px;
+  font-weight: 500;
+  padding-bottom: 4px;
 }
 
 a {
@@ -75,61 +50,103 @@ a:hover {
   color: var(--color-link-hover);
 }
 
-main section.article-list {
-  width: var(--container-width);
-  padding-top: 70px;
-  margin: 0 auto;
-}
-main section.article-list .post-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-main section.article-list .post-header a {
-  position: relative;
-  display: inline-block;
-}
-main section.article-list .post-header a:hover:before {
-  transform: scaleX(1);
-  visibility: visible;
-}
-main section.article-list .post-header a:before {
-  background: var(--color-link);
-  bottom: 0;
-  content: "";
-  height: 2px;
+nav {
+  position: fixed;
+  top: 0;
   left: 0;
-  position: absolute;
-  transform: scaleX(0);
-  visibility: hidden;
-  width: 100%;
-  transition: all 0.2s ease-in-out;
+  width: 180px;
+  height: 100vh;
+  z-index: 100;
+  background-color: var(--color-background-aside);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-main section.article-list .post-header a h2 {
-  font-weight: normal;
+nav .navbar-header {
+  color: var(--color-primary);
+  padding: 15px 10px;
+  font-size: 1.2em;
+  text-align: right;
+  font-weight: bold;
 }
-main section.article-list .post-button {
+nav .navbar-menu {
+  flex-grow: 1;
+}
+nav .navbar-menu-item a {
+  text-align: right;
+  padding: 18px 15px;
+  display: block;
+  border-right: 4px solid var(--color-background-aside);
+  color: var(--color-text-nav-link);
+  font-weight: bold;
+  line-height: var(--font-size);
+}
+nav .navbar-menu-item a.active {
+  color: var(--color-primary);
+  position: relative;
+  border-right: 4px solid var(--color-primary);
+}
+nav .navbar-menu-item a:hover:not(.active) {
+  background-color: var(--color-nav-link-hover-background);
+  color: var(--color-nav-link-hover);
+}
+nav .navbar-bottom {
+  color: var(--color-text-nav-bottom);
+  font-size: 0.7em;
   text-align: center;
+  padding: 10px;
 }
-main section.article-list .post-button a {
-  font-size: 0.875em;
-  background: var(--color-background-btn);
-  border: 2px solid var(--color-background-btn);
-  border-radius: 0;
-  color: var(--color-text-btn);
-  padding: 0 20px;
-  line-height: 2;
-  text-decoration: none;
-  transition-property: background-color;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
+
+@media (min-width: 768px) {
+  header {
+    margin: 0 30px 0 200px;
+    padding: 0 15px;
+  }
+  main {
+    margin: 0 30px 0 200px;
+    padding: 0 15px;
+  }
 }
-main section.article-list .post-footer .post-eof {
-  background: #ccc;
-  height: 1px;
-  margin: 80px auto 60px;
-  text-align: center;
-  width: 8%;
+@media (min-width: 992px) {
+  main section.article-list {
+    margin: 0 -15px;
+  }
+  main section.article-list .col-md-6 {
+    float: left;
+    width: 50%;
+    padding: 0 15px;
+  }
+}
+main article {
+  margin-bottom: 1.3em;
+  line-height: 1.3;
+}
+main article .post-header {
+  font-size: 1.7em;
+  margin: 18px 0;
+  font-weight: bold;
+}
+main article .post-body {
+  line-height: 1.8;
+}
+main article .post-button {
+  display: inline;
+  font-size: 10px;
+  color: white;
+  background-color: var(--color-primary);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+main article .post-button:hover {
+  background-color: #ce9e00;
 }
 
 /*# sourceMappingURL=style.css.map */

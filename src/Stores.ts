@@ -41,7 +41,8 @@ export default class Stores {
     };
 
     public asideMenu: MenuItem[] = [
-        {label: "首页", url: "/", key: "index"},
+        {label: "最新文章", url: "/", key: "index"},
+        {label: "存档", url: "/store", key: "store"},
         {label: "关于", url: "/about", key: "about"}
     ];
 
