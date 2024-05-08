@@ -41,9 +41,8 @@ export default class Stores {
     };
 
     public asideMenu: MenuItem[] = [
-        {label: "最新文章", url: "/", key: "index"},
-        {label: "存档", url: "/store", key: "store"},
-        {label: "关于", url: "/about", key: "about"}
+        {label: "Blog", url: "/", key: "index"},
+        {label: "About", url: "/about", key: "about"}
     ];
 
     public init() {
@@ -77,7 +76,7 @@ export default class Stores {
                         lang = "autoit";
                     }
                     loadLanguages([lang]);
-                    let grammar = Prism.languages[lang];
+                    const grammar = Prism.languages[lang];
                     Prism.hooks.run("before-highlight", {grammar: grammar});
                     return `<pre><code class="language-${lang}">${Prism.highlight(
                         str,
@@ -90,7 +89,7 @@ export default class Stores {
 
             filename = filename.replace(".md", "");
             const contentTitleHTML: string = mdStr.match(/^<h1[ >](.*?)<\/h1>/)?.[0] || "";
-            const contentBodyHTML:string = mdStr.replace(/^<h1[ >].*?<\/h1>/,"")
+            const contentBodyHTML:string = mdStr.replace(/^<h1[ >].*?<\/h1>/,"");
             const title = htmlToText(contentTitleHTML, {
                     tags: {
                         h1: {options: {uppercase: false}}
@@ -101,9 +100,9 @@ export default class Stores {
                 htmlToText(contentBodyHTML,{
                     tags: {
                         a: { options: { ignoreHref: true } },
-                        img: { format: 'skip' },
-                        blockquote: { format: 'skip' },
-                        ul: { options: { itemPrefix: ' - ' } },
+                        img: { format: "skip" },
+                        blockquote: { format: "skip" },
+                        ul: { options: { itemPrefix: " - " } },
                         h1: { options: { uppercase: false } },
                         h2: { options: { uppercase: false } },
                         h3: { options: { uppercase: false } },
@@ -112,7 +111,7 @@ export default class Stores {
                         h6: { options: { uppercase: false } },
                         table: { options: { uppercaseHeaderCells: false } },
                     }
-            }), 200, "...");
+            }), 400, "...");
             const pageProps: PageProps = {
                 title: title,
                 content: mdStr,

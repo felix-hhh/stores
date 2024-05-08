@@ -57,7 +57,9 @@ const initServer = async () => {
      */
     app.get("/about", (req, res) => {
         res.render("about", {
-            serverName: Stores.defaultConfig.title,
+            siteTitle: Stores.defaultConfig.title,
+            siteSubtitle: Stores.defaultConfig.subtitle,
+            pageTitle: "关于",
             asideMenu: stores.asideMenu,
             pageKey: "about"
         });

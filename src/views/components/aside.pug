@@ -1,10 +1,12 @@
 aside.navbar
-    .navbar-header= serverName
-    .navbar-collapse
-        ul
-            each item in asideMenu
-                li.menu-item
-                    if pageKey == item.key
-                        a.active(href=item.url)= item.label
-                    else
-                        a(href=item.url)= item.label
+    .navbar-header= siteTitle
+    ul.navbar-menu
+        each item in asideMenu
+            li.navbar-menu-item
+                if pageKey === item.key
+                    a.active(href=item.url)= item.label
+                else
+                    a(href=item.url)= item.label
+    .navbar-bottom
+        p © 2023 heoang
+        p All rights reserved.

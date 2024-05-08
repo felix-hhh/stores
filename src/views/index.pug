@@ -1,11 +1,11 @@
 doctype html
 html
     head
-        title 最新文章 · #{siteTitle}
+        title #{pageTitle} · #{siteTitle}
         link(rel="stylesheet" href="assets/style.css")
     body
         include components/header
-        include components/nav
+        include components/aside
         main
             section.article-list
                 each item,index in blogData
@@ -19,3 +19,4 @@ html
                             .post-eof
                     if index % 2 !== 0
                         .block
+        include components/footer

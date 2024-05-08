@@ -1,10 +1,11 @@
 doctype html
 html
     head
-        title 文章列表 · #{serverName}
-        link(rel="stylesheet" href="/assets/style.css")
+        title #{pageTitle} · #{siteTitle}
+        link(rel="stylesheet" href="assets/style.css")
     body
+        include components/header
         include components/aside
         main
-            section.main-article
-
+            
+        include components/footer
